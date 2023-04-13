@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="1038.0" stylesheets="@../css/dali.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.WalletFrontController">
+   <children>
+      <ScrollPane fx:id="scrollpane" layoutX="331.0" layoutY="178.0" opacity="0.94" prefHeight="397.0" prefWidth="419.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
+      <Button layoutX="426.0" layoutY="14.0" mnemonicParsing="false" onAction="#ajj" prefHeight="56.0" prefWidth="186.0" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Ajouter Wallet" textFill="WHITE" />
+      <VBox layoutY="-1.0" prefHeight="618.0" prefWidth="148.0" style="-fx-background-color: #172948;">
+         <children>
+            <ImageView fitHeight="147.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/331939313_908136223642012_3641689149527626504_n.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Label layoutX="339.0" layoutY="126.0" prefHeight="52.0" prefWidth="202.0" text="Your Wallet :" textFill="#172948">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="0.64" specularConstant="0.92" specularExponent="7.15" surfaceScale="4.53">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.16862745583057404" green="0.7098039388656616" blue="0.41960784792900085" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <Label fx:id="noml" layoutX="519.0" layoutY="127.0" prefHeight="49.0" prefWidth="202.0" text="Label" textAlignment="RIGHT" textFill="#172948">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+         <effect>
+            <InnerShadow height="42.06" radius="10.015" width="0.0">
+               <color>
+                  <Color red="0.16862745583057404" green="0.7098039388656616" blue="0.41960784792900085" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

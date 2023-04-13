@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="1038.0" stylesheets="@../css/dali.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FXMLController">
+   <children>
+      <VBox layoutX="329.0" layoutY="71.0" opacity="0.7" prefHeight="466.0" prefWidth="510.0" style="-fx-background-color: c0c0c0; -fx-background-radius: 2em;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox prefHeight="618.0" prefWidth="148.0" style="-fx-background-color: #172948;">
+         <children>
+            <ImageView fitHeight="147.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/331939313_908136223642012_3641689149527626504_n.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <TextField fx:id="nom" layoutX="510.0" layoutY="86.0" />
+      <TextField fx:id="prenom" layoutX="510.0" layoutY="132.0" />
+      <Label layoutX="424.0" layoutY="136.0" text="Prénom" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="396.0" layoutY="185.0" text="Date de naissance" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="430.0" layoutY="236.0" text="Email" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="419.0" layoutY="283.0" text="Password" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="437.0" layoutY="332.0" text="Tel" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="423.0" layoutY="382.0" text="Adresse" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="432.0" layoutY="90.0" text="Nom" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="522.0" layoutY="14.0" prefHeight="42.0" prefWidth="138.0" text="Bienvenue" textFill="#172948">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+         
+         <effect>
+            <Lighting diffuseConstant="0.64" specularConstant="0.92" specularExponent="7.15" surfaceScale="4.53">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.16862745583057404" green="0.7098039388656616" blue="0.41960784792900085" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <ComboBox fx:id="rolle" layoutX="508.0" layoutY="428.0" prefWidth="150.0" promptText=" Role" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" />
+      <DatePicker fx:id="date" layoutX="509.0" layoutY="181.0" prefHeight="26.0" prefWidth="150.0" />
+      <TextField fx:id="tel" layoutX="509.0" layoutY="328.0" />
+      <TextField fx:id="email" layoutX="510.0" layoutY="232.0" />
+      <TextField fx:id="adresse" layoutX="509.0" layoutY="378.0" />
+      <Button fx:id="inscription" layoutX="544.0" layoutY="501.0" mnemonicParsing="false" onAction="#inscrip" prefHeight="26.0" prefWidth="101.0" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Inscription" textFill="#fffdfd" />
+      <PasswordField fx:id="password" layoutX="509.0" layoutY="279.0" />
+      <Button layoutX="717.0" layoutY="232.0" mnemonicParsing="false" onAction="#btn_img" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="inserer image" textFill="WHITE" />
+      <Button fx:id="RetourAuAccueil" layoutX="779.0" layoutY="501.0" mnemonicParsing="false" onAction="#RetourAuAccueil" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Retour" textFill="WHITE" />
+      <ImageView fx:id="imageview" fitHeight="122.0" fitWidth="131.0" layoutX="714.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

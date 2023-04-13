@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="1038.0" stylesheets="@../css/dali.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AccueilWalletController">
+   <children>
+      <VBox layoutY="-1.0" prefHeight="618.0" prefWidth="148.0" style="-fx-background-color: #172948;">
+         <children>
+            <ImageView fitHeight="147.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/331939313_908136223642012_3641689149527626504_n.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <ListView fx:id="afficherwallet2" layoutX="176.0" layoutY="114.0" prefHeight="365.0" prefWidth="834.0" />
+      <Text fill="#2bb56b" layoutX="211.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wallet Utilisateurs">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Button layoutX="37.0" layoutY="151.0" mnemonicParsing="false" onAction="#afficherWallet" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Afficher" textFill="WHITE" />
+      <Button fx:id="ModifierWaalet" layoutX="35.0" layoutY="201.0" mnemonicParsing="false" onAction="#ModifierWaalet" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Modifier" textFill="WHITE" />
+      <Button layoutX="30.0" layoutY="254.0" mnemonicParsing="false" onAction="#supprimerWallet" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Supprimer" textFill="WHITE" />
+      <Button fx:id="RetourAuMenuWallet" layoutX="40.0" layoutY="308.0" mnemonicParsing="false" onAction="#RetourAuMenuWallet" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Retour" textFill="WHITE" />
+   </children>
+</AnchorPane>

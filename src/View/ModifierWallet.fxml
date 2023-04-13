@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="1038.0" stylesheets="@../css/dali.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ModifierWalletController">
+   <children>
+      <VBox layoutX="301.0" layoutY="78.0" opacity="0.7" prefHeight="326.0" prefWidth="485.0" style="-fx-background-color: c0c0c0; -fx-background-radius: 2em;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <Label layoutX="381.0" layoutY="100.0" text="Num Carte" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="327.0" layoutY="182.0" text="Méthode de Payment" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="354.0" layoutY="262.0" text="Date d'expiration" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numm" layoutX="496.0" layoutY="96.0" />
+      <DatePicker fx:id="dattteee" layoutX="495.0" layoutY="258.0" prefHeight="26.0" prefWidth="150.0" />
+      <Button layoutX="583.0" layoutY="342.0" mnemonicParsing="false" onAction="#modif" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Modifier" textFill="WHITE" />
+      <Button fx:id="Reatouur" layoutX="388.0" layoutY="342.0" mnemonicParsing="false" onAction="#Reatouur" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Retour" textFill="WHITE" />
+      <ComboBox fx:id="Methodeeee" layoutX="495.0" layoutY="178.0" prefWidth="150.0" promptText="Cards" />
+      <Label layoutX="306.0" layoutY="35.0" prefHeight="35.0" prefWidth="339.0" text="Modifier Wallet" textFill="#172948">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="0.64" specularConstant="0.92" specularExponent="7.15" surfaceScale="4.53">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.16862745583057404" green="0.7098039388656616" blue="0.41960784792900085" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <VBox prefHeight="618.0" prefWidth="148.0" style="-fx-background-color: #172948;">
+         <children>
+            <ImageView fitHeight="147.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/331939313_908136223642012_3641689149527626504_n.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

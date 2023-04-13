@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" onMouseClicked="#click" prefHeight="274.0" prefWidth="275.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.UsercellController">
+   <children>
+      <HBox prefHeight="51.0" prefWidth="230.0">
+         <VBox.margin>
+            <Insets left="20.0" top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <Label fx:id="nomlabel" prefHeight="50.0" prefWidth="130.0" text="hh" textFill="#172948">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="0.65" specularConstant="0.89" specularExponent="15.6" surfaceScale="4.53">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.16862745583057404" green="0.7098039388656616" blue="0.41960784792900085" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <Label fx:id="prenomlabel" prefHeight="50.0" prefWidth="130.0" text="jj" textFill="#172948">
+         <font>
+            <Font name="Cambria Bold Italic" size="24.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="0.65" specularConstant="0.87" specularExponent="14.5" surfaceScale="4.71">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.16862745583057404" green="0.7098039388656616" blue="0.41960784792900085" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <Label fx:id="numerolabel" prefHeight="49.0" prefWidth="137.0" text="t">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="details" mnemonicParsing="false" onAction="#details" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Details" textFill="WHITE" />
+   </children>
+</VBox>
