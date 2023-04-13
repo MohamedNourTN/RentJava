@@ -101,7 +101,7 @@ public class ProduitFront2Controller implements Initializable {
         });
 
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("Texte changé : " + oldValue + " -> " + newValue);
+            System.out.println("Text changed : " + oldValue + " -> " + newValue);
             if (newValue != "") {
                 search(newValue);
             } else {
