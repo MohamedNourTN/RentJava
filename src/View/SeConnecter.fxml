@@ -43,7 +43,7 @@
       </Label>
       <TextField fx:id="email3" layoutX="448.0" layoutY="118.0" prefWidth="176.0" />
       <Button fx:id="inscription2" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" onAction="#inscrip2" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Inscription" textFill="#fdfcff" />
-      
+      <Button layoutX="474.0" layoutY="319.0" mnemonicParsing="false" onAction="#forgetpass" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Mot de passe oublie" textFill="#fcfcfc" />
       <Label layoutX="486.0" layoutY="14.0" prefHeight="52.0" prefWidth="154.0" text="Bienvenue" textFill="#172948">
          <font>
             <Font name="System Bold Italic" size="27.0" />

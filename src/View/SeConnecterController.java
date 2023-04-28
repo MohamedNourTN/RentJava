@@ -21,7 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.SessionManager;
 import services.UserService;
-
+import models.User;
 /**
  * FXML Controller class
  *
@@ -48,70 +48,69 @@ public class SeConnecterController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void login(ActionEvent event) {
-        String page = ""; 
-        String email = email3.getText();
-        String password = password3.getText();
-        int id = -1;
-        UserService sa = new UserService();
-        Alert alert = new Alert(Alert.AlertType.NONE);
-        SessionManager sessionManager = SessionManager.getInstance();
-        id = sa.authentification(email, password);
-        String role = "";
-        
-        if (id == -1)
-        {
-              alert.setAlertType(Alert.AlertType.WARNING);
-                alert.setContentText(" erroné ! ");
-                alert.show();
-        }
-        else {
-            sessionManager.setCurrentUser(sa.readById(id));
-            role = sa.readById(id).getRole();
+  @FXML
+private void login(ActionEvent event) {
+    String page = ""; 
+    String email = email3.getText();
+    String password = password3.getText();
+    int id = -1;
+    UserService sa = new UserService();
+    Alert alert = new Alert(Alert.AlertType.NONE);
+    SessionManager sessionManager = SessionManager.getInstance();
+    id = sa.authentification(email, password);
+    String role = "";
+    
+    if (id == -1)
+    {
+        alert.setAlertType(Alert.AlertType.WARNING);
+        alert.setContentText(" erroné ! ");
+        alert.show();
+    }
+    else {
+        User user = sa.readById(id);
+        if (sa.isBanned(id)) {
+            alert.setAlertType(Alert.AlertType.WARNING);
+            alert.setContentText("Votre compte a été banni !");
+            alert.show();
+        } else {
+            sessionManager.setCurrentUser(user);
+            role = user.getRole();
             switch (role) {
-            case "Admin":
-                alert.setAlertType(Alert.AlertType.INFORMATION);
-                alert.setContentText("Admin connecté");
-                alert.show();
-                page = "Menu.fxml" ;
-                break;
-            case "Client":
-                alert.setAlertType(Alert.AlertType.INFORMATION);
-                alert.setContentText("Client connecté");
-                alert.show();
-                page = "Client.fxml" ;
-
-                break;
-            case "Agent":
-                alert.setAlertType(Alert.AlertType.INFORMATION);
-                alert.setContentText("Agent connecté");
-                alert.show(); 
-                page = "AgentFXML.fxml" ;
-                
-                break;
-        }
+                case "Admin":
+                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Admin connecté");
+                    alert.show();
+                    page = "Menu.fxml" ;
+                    break;
+                case "Client":
+                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Client connecté");
+                    alert.show();
+                    page = "Client.fxml" ;
+                    break;
+                case "Agent":
+                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Agent connecté");
+                    alert.show(); 
+                    page = "AgentFXML.fxml" ;
+                    break;
+            }
+            
             try {
-
-            Parent page1 = FXMLLoader.load(getClass().getResource(page));
-
-            Scene scene = new Scene(page1);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            stage.setScene(scene);
-           // scene.getStylesheets().add("https://cdn.jsdelivr.net/openjfx/8u40-b25/rt/styles/modena/modena.css");
-
-            stage.show();
-
-        } catch (IOException ex) {
-
-           System.out.println(ex.getMessage());
-
+                Parent page1 = FXMLLoader.load(getClass().getResource(page));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                // scene.getStylesheets().add("https://cdn.jsdelivr.net/openjfx/8u40-b25/rt/styles/modena/modena.css");
+                stage.show();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        
     }
-    }
+}
+
+
 
     @FXML
     private void inscrip2(ActionEvent event) throws IOException {

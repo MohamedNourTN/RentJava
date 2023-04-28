@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StatController">
+   <children>
+      <BorderPane fx:id="border" layoutX="28.0" layoutY="15.0" prefHeight="378.0" prefWidth="554.0">
+         <center>
+            <PieChart fx:id="pieChart" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <Button fx:id="acceuil" layoutX="2.0" layoutY="361.0" mnemonicParsing="false" onAction="#home" text="acceuil" />
+   </children>
+</AnchorPane>

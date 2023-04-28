@@ -26,6 +26,10 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import models.User;
 import services.UserService;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
+
 
 /**
  * FXML Controller class
@@ -52,6 +56,8 @@ public class DetailsUserController implements Initializable {
     private ImageView detimage;
     @FXML
     private TextField datt;
+    @FXML
+    private Button banUser;
     /**
      * Initializes the controller class.
      */
@@ -88,6 +94,19 @@ if (p.getImg() != null)
         stage.setScene(scene);
         stage.show();
     }
+@FXML
+private void banUser(ActionEvent event) {
+    UserService su = new UserService();
+    User selectedUser = su.getUserById(uu.getId()); // Get the selected user by id
+    su.banUser(selectedUser); // Ban the user
+    Alert alert = new Alert(AlertType.INFORMATION);
+    alert.setTitle("User Banned");
+    alert.setHeaderText(null);
+    alert.setContentText("The selected user has been banned.");
+    alert.showAndWait();
+    // Navigate back to the previous screen, if needed
+}
+
 
     @FXML
     private void supp(ActionEvent event) {

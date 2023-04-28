@@ -5,7 +5,9 @@
  */
 package View;
 
-
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -143,7 +145,10 @@ public class AjoutWalletFrontController implements Initializable {
             u=SessionManager.getInstance().getCurrentUser();
         Wallet w = new Wallet(u,Integer.parseInt(tfnum.getText()),combod.getValue(),java.sql.Date.valueOf(d));
         sw.ajouter(w);
-     
+     Twilio.init("ACdfe1cb0558c9bbc8b1dab442ffd668c0", "e636879406b14c214aa438407b0a2d85");
+       Message message= Message.creator(new PhoneNumber("+21694134523"),new PhoneNumber("+21656202847"),"Wallet added successfully").create();
+        Alert a = new Alert(Alert.AlertType.INFORMATION,"wallet ajoutée",ButtonType.OK);
+        a.showAndWait();
         
         
         

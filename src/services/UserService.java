@@ -26,6 +26,94 @@ public class UserService implements Interface_IService <User> {
     Connection cnx=MyConnection.getInstance().getCnx();
     
     @Override
+   public List<User> afficher() {
+    List<User> users = new ArrayList<>();
+    try {
+        String req = "SELECT * FROM user";
+        PreparedStatement ps = cnx.prepareStatement(req);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            User user = new User();
+            user.setId(rs.getInt("id"));
+            user.setNom(rs.getString("nom"));
+            user.setPrenom(rs.getString("prenom"));
+            user.setDdn(rs.getDate("ddn"));
+            user.setEmail(rs.getString("email"));
+            user.setImg(rs.getString("img"));
+            user.setPswd(rs.getString("pswd"));
+            user.setTel(rs.getInt("tel"));
+            user.setAdresse(rs.getString("adresse"));
+            user.setRole(rs.getString("role"));
+            users.add(user);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return users;
+}
+    
+    
+  
+public void banUser(User user) {
+    try {
+        String req = "UPDATE user SET isBanned = ? WHERE id = ?";
+        PreparedStatement ps = cnx.prepareStatement(req);
+        ps.setBoolean(1, true);
+        ps.setInt(2, user.getId());
+        ps.executeUpdate();
+        user.setBanned(true);
+        System.out.println("User Banned Successfully!");
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+public boolean isUserBanned(User user) {
+    User retrievedUser = getUserById(user.getId());
+    return retrievedUser.isBanned();
+}
+public boolean isBanned(int userId) {
+    boolean banned = false;
+    try {
+       String query = "SELECT isBanned FROM user WHERE id = ?";
+        PreparedStatement preparedStatement = cnx.prepareStatement(query);
+        preparedStatement.setInt(1, userId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            banned = resultSet.getBoolean("isbanned");
+        }
+        resultSet.close();
+        preparedStatement.close();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return banned;
+}
+
+public User getUserById(int userId) {
+    User user = null;
+    try {
+        String query = "SELECT * FROM user WHERE id = ?";
+        PreparedStatement preparedStatement = cnx.prepareStatement(query);
+        preparedStatement.setInt(1, userId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            user = new User(resultSet.getInt("id"));
+            user.setBanned(resultSet.getBoolean("banned"));
+        }
+        resultSet.close();
+        preparedStatement.close();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return user;
+}
+
+
+
+
+    
+    @Override
     public void ajouter(User user) {
     try {
         String req = "INSERT INTO `user` ( `nom`, `prenom`, `ddn`, `email`, img,`pswd`, `tel`, `adresse`, `role`) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -100,33 +188,27 @@ return users;
         
 };
 
-
-    @Override
-   public List<User> afficher() {
-    List<User> users = new ArrayList<>();
+public User getUserByEmail(String email) {
+    User user = null;
     try {
-        String req = "SELECT * FROM user";
-        PreparedStatement ps = cnx.prepareStatement(req);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            User user = new User();
-            user.setId(rs.getInt("id"));
-            user.setNom(rs.getString("nom"));
-            user.setPrenom(rs.getString("prenom"));
-            user.setDdn(rs.getDate("ddn"));
-            user.setEmail(rs.getString("email"));
-            user.setImg(rs.getString("img"));
-            user.setPswd(rs.getString("pswd"));
-            user.setTel(rs.getInt("tel"));
-            user.setAdresse(rs.getString("adresse"));
-            user.setRole(rs.getString("role"));
-            users.add(user);
+        String query = "SELECT * FROM user WHERE email = ?";
+        PreparedStatement preparedStatement = cnx.prepareStatement(query);
+        preparedStatement.setString(1, email);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            user = new User(resultSet.getInt("id"));
+            user.setBanned(resultSet.getBoolean("banned"));
+            // set other user fields here
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+        resultSet.close();
+        preparedStatement.close();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
     }
-    return users;
+    return user;
 }
+
+    
  @Override
    public List<User> afficherrr() {
     List<User> users = new ArrayList<>();
@@ -290,4 +372,32 @@ public int ChercherMail(String email) {
     }
      return users;
     }
+ 
+    
+    public int userparrole(int id){
+        int n=0;
+        try {
+                    String sql = "SELECT COUNT(*) FROM User ";
+                            
+                    PreparedStatement ste = cnx.prepareStatement(sql);
+                    
+                    ResultSet s = ste.executeQuery(sql);
+
+                    while (s.next()) {
+                    n=s.getInt(1);
+                }
+
+
+
+                    
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                } 
+        
+        
+        return n;
+        
+    }
+    
+
 }

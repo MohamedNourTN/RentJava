@@ -21,6 +21,7 @@
                   <Image url="@../Image/331939313_908136223642012_3641689149527626504_n.png" />
                </image>
             </ImageView>
+            <Button fx:id="stat" mnemonicParsing="false" onAction="#stat" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="stat" textFill="WHITE" />
          </children>
       </VBox>
       <Text fill="#2bb56b" layoutX="207.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilisateurs">
@@ -29,7 +30,9 @@
          </font>
       </Text>
       <Button fx:id="AfficherUser" layoutX="44.0" layoutY="213.0" mnemonicParsing="false" onAction="#AfficherUser" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Afficher" textFill="WHITE" />
-    
+      <TextField fx:id="rech" layoutX="777.0" layoutY="71.0" opacity="0.81" />
+     <Button fx:id="recherche" layoutX="946.0" layoutY="71.0" mnemonicParsing="false" onAction="#recherche" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Chercher" textFill="WHITE" />
+
      
       <Button fx:id="LogIn" layoutX="42.0" layoutY="153.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="LogIn" textFill="WHITE" />
       <Button fx:id="RetourAuMenuUser" layoutX="556.0" layoutY="584.0" mnemonicParsing="false" onAction="#RetourAuMenuUser" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Retour" textFill="WHITE" />

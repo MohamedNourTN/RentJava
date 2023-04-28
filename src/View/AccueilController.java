@@ -45,8 +45,6 @@ public class AccueilController implements Initializable {
     @FXML
     private Button AfficherUser;
     @FXML
-    private Button ModifierUser;
-    @FXML
     private Button LogIn;
     @FXML
     private Button RetourAuMenuUser;
@@ -63,6 +61,10 @@ public class AccueilController implements Initializable {
     private List<User> User = new ArrayList<>();
     private List<User> UserR = new ArrayList<>();
     UserService bs = new UserService();
+    @FXML
+    private Button recherche;
+    @FXML
+    private Button stat;
 
     /**
      * Initializes the controller class.
@@ -118,7 +120,6 @@ public class AccueilController implements Initializable {
         
     }
 
-    @FXML
     private void ModifierUser(ActionEvent event) throws IOException {
 
         User selectedUser = afficher.getSelectionModel().getSelectedItem();
@@ -136,6 +137,52 @@ public class AccueilController implements Initializable {
         stage.show();
 
     }
+    @FXML
+private void recherche(ActionEvent event) throws SQLException {
+    // Efface la grille existante pour afficher les nouveaux résultats de la recherche
+    grid.getChildren().clear();
+    
+    // Récupère la chaîne de recherche à partir du champ de texte
+    String searchTerm = rech.getText();
+    
+    // Utilise la méthode "rechercher" de votre service de base de données pour obtenir les résultats de la recherche
+    List<User> results = bs.rechercher(searchTerm);
+    
+    // Parcourt les résultats de la recherche et ajoute chaque utilisateur à la grille
+    int column = 0;
+    int row = 1;
+    try {
+        for (User user : results) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("usercell.fxml"));
+            VBox anchorPane = fxmlLoader.load();
+
+            UsercellController usercellController = fxmlLoader.getController();
+            usercellController.setData(user, myListener1);
+
+            if (column == 3) {
+                column = 0;
+                row++;
+            }
+
+            grid.add(anchorPane, column++, row); //(child,column,row)
+            //set grid width
+            grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+            grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+            grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+            //set grid height
+            grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+            grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+            grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+            GridPane.setMargin(anchorPane, new Insets(10));
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
 
     @FXML
     private void LogIn(ActionEvent event) throws IOException {
@@ -160,6 +207,22 @@ public class AccueilController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private void stat(ActionEvent event)throws IOException {
+    
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("stat.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+
+        // Récupérer le stage actuel et changer sa scène pour la nouvelle interface
+        Stage stage = (Stage) RetourAuMenuUser.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    
+    
+    }
+    
 
    
 }

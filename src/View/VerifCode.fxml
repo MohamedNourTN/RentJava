@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="1038.0" stylesheets="@../css/dali.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.VerifCodeController">
+    <children>
+      <VBox layoutX="421.0" layoutY="108.0" opacity="0.7" prefHeight="154.0" prefWidth="294.0" style="-fx-background-color: c0c0c0; -fx-background-radius: 2em;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <TextField fx:id="tfCode" layoutX="525.0" layoutY="150.0" />
+      <Button fx:id="btnConfirmerCode" layoutX="565.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnConfirmerCodeAction" style="-fx-background-color: #2bb56b; -fx-background-radius: 10px;" text="Confirmer" textFill="WHITE" />
+      <Label layoutX="459.0" layoutY="154.0" text="Code" textFill="#2bb56b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <VBox prefHeight="618.0" prefWidth="148.0" style="-fx-background-color: #172948;">
+         <children>
+            <ImageView fitHeight="147.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/331939313_908136223642012_3641689149527626504_n.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Label layoutX="401.0" layoutY="32.0" prefHeight="42.0" prefWidth="347.0" text="Récupérer votre mot de passe" textFill="#172948">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="0.64" specularConstant="0.92" specularExponent="7.15" surfaceScale="4.53">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.16862745583057404" green="0.7098039388656616" blue="0.41960784792900085" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

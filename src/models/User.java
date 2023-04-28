@@ -20,12 +20,12 @@ public class User {
     private int tel;
     private String adresse;
     private String role;
-   
+   private boolean isBanned;
    
     public User(){    
     }
    
-    public User(int id,String nom,String prenom ,Date ddn,String email,String img,String pswd,int tel,String adresse,String role )
+    public User(int id,String nom,String prenom ,Date ddn,String email,String img,String pswd,int tel,String adresse,String role, boolean isBanned )
     {
         this.id=id;
         this.nom=nom;
@@ -37,9 +37,12 @@ public class User {
         this.tel=tel;
         this.adresse=adresse;
         this.role=role;
-       
+       this.isBanned = isBanned;
     }
-   
+    public User(int id)
+            {
+        this.id=id;
+        }
       public User(String nom,String prenom ,Date ddn,String email,String img,String pswd,int tel,String adresse,String role )
     {
         this.nom=nom;
@@ -135,7 +138,13 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
-   
+    public boolean isBanned() {
+        return isBanned;
+    }
+    
+    public void setBanned(boolean isBanned) {
+        this.isBanned = isBanned;
+    }
    
     @Override
     public String toString() {
