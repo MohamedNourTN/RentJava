@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package elbaldi.GUI;
-
 import elbaldi.models.produit;
 import java.io.File;
 import java.io.IOException;
